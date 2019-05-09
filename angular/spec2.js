@@ -66,8 +66,8 @@ describe('Epochconverter with protractor', function() {
 		ymdhms_timestamp_seconds.getAttribute('value').sendKeys('34');
 		ymdhms_timestamp_button.click();
 		//browser.sleep(2000);
-		//expect(ymdhms_timestamp_result.XYZ.toEqual('2019'));
-		//console.log(ymdhms_timestamp_result.getText());
+		//expect(ymdhms_timestamp_result.XYZ.toEqual('1111'));
+		console.log('Hier: ' + ymdhms_timestamp_result.innerText);
 		//browser.sleep(5000);
     });
 	
