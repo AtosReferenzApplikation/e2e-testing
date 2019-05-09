@@ -91,11 +91,11 @@ describe('Epochconverter with protractor', function() {
 		convert_button.click();
     });
 
-/*	
+/*
 	// Convert seconds to days, hours and minutes
 	// TODO ...
 	it('TC 4.1. manipulate date & time and check', () => {
-		...
+		//...
     });
 
 	//console.log('\nYear: ' + ('1234') + '\nMonth: ' + ('11') + '\nDay: ' + ('22') + '\nTime: ' + ('22') + ':' + '11');
