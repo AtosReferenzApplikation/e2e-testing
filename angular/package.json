@@ -11,22 +11,14 @@
     "e2e": "ng e2e"
   },
   "private": true,
-  "dependencies": {
-    "bootstrap": "4.3.1",
-    "core-js": "3.0.1",
-    "jquery": "^3.4.1",
-    "moment": "^2.24.0",
-    "popper.js": "1.15.0",
-    "rxjs": "6.3.3",
-    "rxjs-compat": "6.5.1",
-    "zone.js": "0.8.26"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/jasmine": "2.8.7",
     "@types/jasminewd2": "2.0.3",
     "@types/node": "6.0.111",
     "jasmine-core": "2.8.0",
     "jasmine-spec-reporter": "4.2.1",
+    "moment": "^2.24.0",
     "protractor": "^5.4.1",
     "ts-node": "4.1.0",
     "tslint": "5.9.1",
