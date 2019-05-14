@@ -1,3 +1,5 @@
+import {element, by} from 'protractor';	
+
 module.exports = {
 	variables: {
 		ymdhms_timestamp_year: element(by.id("hf-d1")).element(by.className("dateform year")),
@@ -24,6 +26,6 @@ module.exports = {
 		ToDo.ymdhms_timestamp_minutes.sendKeys(minutes);
 		ToDo.ymdhms_timestamp_seconds.clear();
     	ToDo.ymdhms_timestamp_seconds.sendKeys(seconds);
-		ToDo.ymdhms_timestamp_button.click();
+		//await ToDo.ymdhms_timestamp_button.click();
 	}
 };

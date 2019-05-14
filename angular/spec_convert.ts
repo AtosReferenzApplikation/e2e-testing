@@ -1,3 +1,5 @@
+import {element, by} from 'protractor';
+
 module.exports = {
 	variables: {
 		convert_year: element(by.id("br-d1")).element(by.className("dateform year")),
@@ -12,6 +14,6 @@ module.exports = {
 		ToDo.convert_year.sendKeys(year);
 		ToDo.convert_month.clear();
 		ToDo.convert_month.sendKeys(month);
-		//ToDo.convert_button.click(); //Funktioniert bisher nicht
+		//await ToDo.convert_button.click(); //Funktioniert bisher nicht
 	}
 };

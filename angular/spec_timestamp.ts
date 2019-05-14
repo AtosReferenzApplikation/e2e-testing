@@ -1,3 +1,5 @@
+import {element, by} from 'protractor';
+
 module.exports = {
 	variables: {	
 		timestamp: element(by.id("fs")).element(by.id("rcinput")),
@@ -9,7 +11,7 @@ module.exports = {
 
 		ToDo.timestamp.clear();
 		ToDo.timestamp.getAttribute('value').sendKeys(datetimegmt);
-		ToDo.timestamp_button.click();
+		//await ToDo.timestamp_button.click();
 
 	}
 };

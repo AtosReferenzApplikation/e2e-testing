@@ -1,3 +1,5 @@
+import {element, by} from 'protractor';
+
 module.exports = {
 	variables: {
 		convert_sdhm: element(by.id("tc")).element(by.id("scinput")),
@@ -9,6 +11,6 @@ module.exports = {
 		
 		ToDo.convert_sdhm.clear();
 		ToDo.convert_sdhm.getAttribute('value').sendKeys(seconds);
-		//ToDo.convert_sdhm_button.click(); //Funktioniert nicht
+		//await ToDo.convert_sdhm_button.click(); //Funktioniert nicht
 	}
 };
