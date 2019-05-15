@@ -36,11 +36,19 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 var protractor_1 = require("protractor");
+<<<<<<< HEAD:spec.js
+var convert_1 = require("./epochconverter/convert");
+var convert_sdhm_1 = require("./epochconverter/convert_sdhm");
+var timestamp_1 = require("./epochconverter/timestamp");
+var ymdhms_timestamp_1 = require("./epochconverter/ymdhms_timestamp");
+var moment = require("moment");
+=======
 var ConvertYM = require('./spec_convert.ts');
 var ConvertSEC = require('./spec_convert_sdhm.ts');
 var DateTimeGMT = require('./spec_timestamp.ts');
 var DateTimeTest = require('./spec_ymdhms_timestamp.ts');
 var moment = require('moment');
+>>>>>>> parent of 82fb02d... Testfall mit epocheconverter V1.6 - JavaScript-Datei in Typescript-Datei umgewandelt:angular/spec.js
 describe('Epochconverter with protractor -', function () {
     // ########## Mein ToDo ##########
     // GMT zu Local time wechseln
@@ -78,36 +86,25 @@ describe('Epochconverter with protractor -', function () {
         expect(ymdhms_timestamp_day.getAttribute('value')).toEqual("" + (day));
         expect(ymdhms_timestamp_hours.getAttribute('value')).toEqual("" + (hours_utc));
         expect(ymdhms_timestamp_minutes.getAttribute('value')).toEqual("" + minutes);
-        //console.log('\nYear: ' + (1900+year) + '\nMonth: ' + (month) + '\nDay: ' + (day) + '\nTime: ' + (hours_utc) + ':' + minutes);
     });
     // TODO Ausgabe muss noch ausgelesen werden
     it('TC 1.2. Manipulate date & time and check', function () {
         return __awaiter(this, void 0, void 0, function () {
+            var DateTimeTest;
             return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        DateTimeTest.YMDHMS('1234', '11', '22', '22', '11', '34');
-                        return [4 /*yield*/, protractor_1.element.all(protractor_1.by.buttonText("Human date to Timestamp")).first().click()];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
+                DateTimeTest = new ymdhms_timestamp_1.YMDHMS('1234', '11', '22', '22', '11', '34');
+                return [2 /*return*/];
             });
         });
     });
     // TODO Ausgabe muss noch ausgelesen werden
     it('TC 2.1 manipulate date & time and check', function () {
         return __awaiter(this, void 0, void 0, function () {
+            var DateTimeGMT;
             return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        expect(timestamp.getAttribute('value')).toEqual('Wed, 08 May 2019 15:16:02 GMT'); // It will be always wrong, just ignore this error.
-                        DateTimeGMT.DTG('Wed, 01 May 2019 15:16:02 GMT');
-                        return [4 /*yield*/, protractor_1.element(protractor_1.by.id("fs")).element(protractor_1.by.buttonText("Human date to Timestamp")).click()];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
+                expect(timestamp.getAttribute('value')).toEqual('Wed, 08 May 2019 15:16:02 GMT'); // It will be always wrong, just ignore this error.
+                DateTimeGMT = new timestamp_1.DTG('Wed, 01 May 2019 15:16:02 GMT');
+                return [2 /*return*/];
             });
         });
     });
@@ -115,17 +112,12 @@ describe('Epochconverter with protractor -', function () {
     // TODO Ausgabe muss noch ausgelesen werden
     it('TC 3.1. manipulate date & time and check', function () {
         return __awaiter(this, void 0, void 0, function () {
+            var ConvertYM;
             return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        expect(convert_year.getAttribute('value')).toEqual("" + (year));
-                        expect(convert_month.getAttribute('value')).toEqual("" + (month));
-                        ConvertYM.YM('2000', '12');
-                        return [4 /*yield*/, protractor_1.element(protractor_1.by.buttonText("Convert")).click()];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
+                expect(convert_year.getAttribute('value')).toEqual("" + (year));
+                expect(convert_month.getAttribute('value')).toEqual("" + (month));
+                ConvertYM = new convert_1.YM('2000', '12');
+                return [2 /*return*/];
             });
         });
     });
@@ -133,16 +125,11 @@ describe('Epochconverter with protractor -', function () {
     // TODO Buttonklick funktioniert nicht & Ausgabe auslesen
     it('TC 4.1. manipulate seconds and check', function () {
         return __awaiter(this, void 0, void 0, function () {
+            var ConvertSEC;
             return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        expect(convert_sdhm.getAttribute('value')).toEqual('90061');
-                        ConvertSEC.SEC('20000');
-                        return [4 /*yield*/, protractor_1.element(protractor_1.by.id("tc")).element(protractor_1.by.buttonText("Seconds to days, hours, minutes")).click()];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
+                expect(convert_sdhm.getAttribute('value')).toEqual('90061');
+                ConvertSEC = new convert_sdhm_1.SEC('20000');
+                return [2 /*return*/];
             });
         });
     });

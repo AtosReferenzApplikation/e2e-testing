@@ -1,10 +1,11 @@
 import { browser, element, by } from 'protractor';
 
-let ConvertYM = require('./spec_convert.ts');
-let ConvertSEC = require('./spec_convert_sdhm.ts');
-let DateTimeGMT = require('./spec_timestamp.ts');
-let DateTimeTest = require('./spec_ymdhms_timestamp.ts');
-let moment = require('moment');
+import { YM } from "./epochconverter/convert";
+import { SEC } from './epochconverter/convert_sdhm';
+import { DTG } from './epochconverter/timestamp';
+import { YMDHMS } from './epochconverter/ymdhms_timestamp';
+import * as moment from 'moment';
+
 
 describe('Epochconverter with protractor -', function() {
 
@@ -48,13 +49,11 @@ describe('Epochconverter with protractor -', function() {
 		expect(ymdhms_timestamp_day.getAttribute('value')).toEqual("" + (day));
 		expect(ymdhms_timestamp_hours.getAttribute('value')).toEqual("" + (hours_utc));
 		expect(ymdhms_timestamp_minutes.getAttribute('value')).toEqual("" + minutes);
-		//console.log('\nYear: ' + (1900+year) + '\nMonth: ' + (month) + '\nDay: ' + (day) + '\nTime: ' + (hours_utc) + ':' + minutes);
     });
 
 	// TODO Ausgabe muss noch ausgelesen werden
 	it('TC 1.2. Manipulate date & time and check', async function() {
-		DateTimeTest.YMDHMS('1234','11','22','22','11','34');
-		await element.all(by.buttonText("Human date to Timestamp")).first().click();
+		let DateTimeTest = new YMDHMS('1234','11','22','22','11','34');
 		//browser.sleep(5000);
 		//expect(ymdhms_timestamp_result.XYZ.toEqual('1111'));
 		//let ymdhms_timestamp_result = element(by.id("hf-result"));
@@ -64,8 +63,7 @@ describe('Epochconverter with protractor -', function() {
 	// TODO Ausgabe muss noch ausgelesen werden
 	it('TC 2.1 manipulate date & time and check', async function() {
 		expect(timestamp.getAttribute('value')).toEqual('Wed, 08 May 2019 15:16:02 GMT'); // It will be always wrong, just ignore this error.
-		DateTimeGMT.DTG('Wed, 01 May 2019 15:16:02 GMT');
-		await element(by.id("fs")).element(by.buttonText("Human date to Timestamp")).click();
+		let DateTimeGMT = new DTG('Wed, 01 May 2019 15:16:02 GMT');
     });
 
 	// Epoch dates for the start and end of the year/month/day
@@ -73,16 +71,14 @@ describe('Epochconverter with protractor -', function() {
 	it('TC 3.1. manipulate date & time and check', async function() {
 		expect(convert_year.getAttribute('value')).toEqual("" + (year));
 		expect(convert_month.getAttribute('value')).toEqual("" + (month));
-		ConvertYM.YM('2000','12');
-		await element(by.buttonText("Convert")).click();
+		let ConvertYM = new YM('2000','12');
     });
 
 	// Convert seconds to days, hours and minutes
 	// TODO Buttonklick funktioniert nicht & Ausgabe auslesen
 	it('TC 4.1. manipulate seconds and check', async function() {
 		expect(convert_sdhm.getAttribute('value')).toEqual('90061');
-		ConvertSEC.SEC('20000');
-		await element(by.id("tc")).element(by.buttonText("Seconds to days, hours, minutes")).click();
+		let ConvertSEC = new SEC('20000');
 	});
 });
 
