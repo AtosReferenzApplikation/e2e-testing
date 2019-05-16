@@ -36,19 +36,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 var protractor_1 = require("protractor");
-<<<<<<< HEAD:spec.js
 var convert_1 = require("./epochconverter/convert");
 var convert_sdhm_1 = require("./epochconverter/convert_sdhm");
 var timestamp_1 = require("./epochconverter/timestamp");
 var ymdhms_timestamp_1 = require("./epochconverter/ymdhms_timestamp");
 var moment = require("moment");
-=======
-var ConvertYM = require('./spec_convert.ts');
-var ConvertSEC = require('./spec_convert_sdhm.ts');
-var DateTimeGMT = require('./spec_timestamp.ts');
-var DateTimeTest = require('./spec_ymdhms_timestamp.ts');
-var moment = require('moment');
->>>>>>> parent of 82fb02d... Testfall mit epocheconverter V1.6 - JavaScript-Datei in Typescript-Datei umgewandelt:angular/spec.js
 describe('Epochconverter with protractor -', function () {
     // ########## Mein ToDo ##########
     // GMT zu Local time wechseln
