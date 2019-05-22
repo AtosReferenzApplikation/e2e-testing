@@ -6,7 +6,7 @@ export class SEC {
 
 	constructor(seconds:string){
 		this.convert_sdhm.clear();
-		this.convert_sdhm.getAttribute('value').sendKeys(seconds);
+		this.convert_sdhm.sendKeys(seconds);
 		this.convert_sdhm_button.click();
    }
 }

@@ -59,7 +59,7 @@ describe('Epochconverter with protractor -', function() {
 		//let ymdhms_timestamp_result = element(by.id("hf-result"));
 		//console.log('Hier: ' + ymdhms_timestamp_result.innerText);
     });
-	
+
 	// TODO Ausgabe muss noch ausgelesen werden
 	it('TC 2.1 manipulate date & time and check', async function() {
 		expect(timestamp.getAttribute('value')).toEqual('Wed, 08 May 2019 15:16:02 GMT'); // It will be always wrong, just ignore this error.
@@ -79,6 +79,5 @@ describe('Epochconverter with protractor -', function() {
 	it('TC 4.1. manipulate seconds and check', async function() {
 		expect(convert_sdhm.getAttribute('value')).toEqual('90061');
 		let ConvertSEC = new SEC('20000');
-	});
+	})
 });
-
