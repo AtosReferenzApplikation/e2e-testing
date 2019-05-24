@@ -1,1 +1,0 @@
-del /s "C:\Users\A420160\Documents\docker\e2e-testing\epochconverter\*.js" & del /s "C:\Users\A420160\Documents\docker\e2e-testing\spec.js"

@@ -1,2 +1,0 @@
-tsc --target es5 --lib dom,es6 spec.ts & tsc --target es5 --lib dom,es6 epochconverter/convert.ts & tsc --target es5 --lib dom,es6 epochconverter/convert_sdhm.ts & tsc --target es5 --lib dom,es6 epochconverter/timestamp.ts & tsc --target es5 --lib dom,es6 epochconverter/ymdhms_timestamp.ts
-PAUSE

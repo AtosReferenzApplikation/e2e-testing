@@ -52,18 +52,18 @@ describe('Epochconverter with protractor -', function() {
     });
 
 	// TODO Ausgabe muss noch ausgelesen werden
-	it('TC 1.2. Manipulate date & time and check', async function() {
-		let DateTimeTest = new YMDHMS('1234','11','22','22','11','34');
-		//browser.sleep(5000);
-		//expect(ymdhms_timestamp_result.XYZ.toEqual('1111'));
-		//let ymdhms_timestamp_result = element(by.id("hf-result"));
-		//console.log('Hier: ' + ymdhms_timestamp_result.innerText);
-    });
+	it('TC 1.2. Manipulate date & time and check', async () => {
+		const DateTimeTest = new YMDHMS();
+		await DateTimeTest.perform('1234', '11', '22', '22', '11', '34');
+
+		expect(ymdhms_timestamp_day.getAttribute('value')).toEqual('1234');
+	});
 
 	// TODO Ausgabe muss noch ausgelesen werden
-	it('TC 2.1 manipulate date & time and check', async function() {
+	it('TC 2.1 manipulate date & time and check', async () => {
 		expect(timestamp.getAttribute('value')).toEqual('Wed, 08 May 2019 15:16:02 GMT'); // It will be always wrong, just ignore this error.
-		let DateTimeGMT = new DTG('Wed, 01 May 2019 15:16:02 GMT');
+		const DateTimeGMT = new DTG();
+		await DateTimeGMT.perform('Wed, 01 May 2019 15:16:02 GMT');
     });
 
 	// Epoch dates for the start and end of the year/month/day
@@ -71,13 +71,15 @@ describe('Epochconverter with protractor -', function() {
 	it('TC 3.1. manipulate date & time and check', async function() {
 		expect(convert_year.getAttribute('value')).toEqual("" + (year));
 		expect(convert_month.getAttribute('value')).toEqual("" + (month));
-		let ConvertYM = new YM('2000','12');
-    });
+		const ConvertYM = new YM();
+		await ConvertYM.perform('2000','12');
+	});
 
 	// Convert seconds to days, hours and minutes
 	// TODO Buttonklick funktioniert nicht & Ausgabe auslesen
 	it('TC 4.1. manipulate seconds and check', async function() {
 		expect(convert_sdhm.getAttribute('value')).toEqual('90061');
-		let ConvertSEC = new SEC('20000');
+		const ConvertSEC = new SEC();
+		await ConvertSEC.perform(20000)
 	})
 });
