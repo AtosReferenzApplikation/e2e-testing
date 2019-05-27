@@ -1,6 +1,6 @@
 import {element, by, ElementFinder} from 'protractor';
 
-export class YM {
+export class YearMonth {
 	public convert_year: ElementFinder = element(by.id("br-d1")).element(by.className("dateform year"));
 	public convert_month: ElementFinder = element(by.id("br-d2")).element(by.className("dateform month"));
 	public convert_button: ElementFinder = element(by.buttonText("Convert"));
