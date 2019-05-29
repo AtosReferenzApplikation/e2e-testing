@@ -1,4 +1,4 @@
-import {element, by, ElementFinder} from 'protractor';	
+import {element, by, ElementFinder} from 'protractor';
 
 export class YearMonthDayHoursMinutesSeconds {
 	public ymdhms_timestamp_year: ElementFinder = element(by.id("hf-d1")).element(by.className("dateform year"));

@@ -6,7 +6,6 @@ import { DateTimeGMT } from './epochconverter/timestamp';
 import { YearMonthDayHoursMinutesSeconds } from './epochconverter/ymdhms_timestamp';
 import * as moment from 'moment';
 
-
 describe('Epochconverter with protractor -', function() {
 
 	// ########## Mein ToDo ##########
@@ -14,7 +13,6 @@ describe('Epochconverter with protractor -', function() {
 	// Timestamp to Human date fehlt noch
 	// Jeweils Rückkgabe nach Buttonklick auslesen
 	// ###############################
-
 	// Date and time from moment.js
 	let year = moment().format('Y');
 	let month = moment().format('M');
@@ -22,8 +20,8 @@ describe('Epochconverter with protractor -', function() {
 	let hours_utc = moment().utc().format('H');
 	//let hours = moment().format('H');
 	let minutes = moment().format('m');
-	//let seconds = moment().format('s');
 
+	//let seconds = moment().format('s');
 	// Variables for expect_toEqual
 	let ymdhms_timestamp_year = element(by.id("hf-d1")).element(by.className("dateform year"));
 	let ymdhms_timestamp_month = element(by.id("hf-d2")).element(by.className("dateform month"));
@@ -35,6 +33,8 @@ describe('Epochconverter with protractor -', function() {
 	let convert_year = element(by.id("br-d1")).element(by.className("dateform year"));
 	let convert_month = element(by.id("br-d2")).element(by.className("dateform month"));
 	let convert_sdhm = element(by.id("tc")).element(by.id("scinput"));
+
+	let textresult = element(by.name("hf")).element(by.id("hf-result"));
 
 	// Test case Convert epoch to human readable date and vice versa
     beforeEach(function () {
@@ -52,34 +52,36 @@ describe('Epochconverter with protractor -', function() {
     });
 
 	// TODO Ausgabe muss noch ausgelesen werden
-	it('TC 1.2. Manipulate date & time and check', async () => {
+	it('TC 1.2. Manipulate date & time and check', () => {
 		const DateTimeTest = new YearMonthDayHoursMinutesSeconds();
-		await DateTimeTest.perform('1234', '11', '22', '22', '11', '34');
-
-		expect(ymdhms_timestamp_day.getAttribute('value')).toEqual('1234');
+		DateTimeTest.perform('1234', '11', '22', '22', '11', '34');
+		browser.sleep(2000);
+		//expect(ymdhms_timestamp_day.getAttribute('value')).toEqual('1234');
+		//expect(element(by.id("hf-result")).toEqual('23'));
+	    console.log("HERE RESULT: " + textresult.getAttribute("innerHTML"));
 	});
 
 	// TODO Ausgabe muss noch ausgelesen werden
-	it('TC 2.1 manipulate date & time and check', async () => {
+	it('TC 2.1 manipulate date & time and check', () => {
 		expect(timestamp.getAttribute('value')).toEqual('Wed, 08 May 2019 15:16:02 GMT'); // It will be always wrong, just ignore this error.
 		const DateTime = new DateTimeGMT();
-		await DateTime.perform('Wed, 01 May 2019 15:16:02 GMT');
+		DateTime.perform('Wed, 01 May 2019 15:16:02 GMT');
     });
-
 	// Epoch dates for the start and end of the year/month/day
+
 	// TODO Ausgabe muss noch ausgelesen werden
-	it('TC 3.1. manipulate date & time and check', async function() {
+	it('TC 3.1. manipulate date & time and check', () => {
 		expect(convert_year.getAttribute('value')).toEqual("" + (year));
 		expect(convert_month.getAttribute('value')).toEqual("" + (month));
 		const ConvertYM = new YearMonth();
-		await ConvertYM.perform('2000','12');
+		ConvertYM.perform('2000','12');
 	});
-
 	// Convert seconds to days, hours and minutes
+
 	// TODO Buttonklick funktioniert nicht & Ausgabe auslesen
-	it('TC 4.1. manipulate seconds and check', async function() {
+	it('TC 4.1. manipulate seconds and check', () => {
 		expect(convert_sdhm.getAttribute('value')).toEqual('90061');
 		const ConvertSEC = new SecondsConvert();
-		await ConvertSEC.perform(20000)
-	})
+		ConvertSEC.perform(20000);
+	});
 });
