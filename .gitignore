@@ -1,5 +1,7 @@
 node_modules
 .vscode
+*.js
+!protractor.conf.js
 
 # IDEs and editors
 /.idea
