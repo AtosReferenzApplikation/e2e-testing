@@ -1,5 +1,6 @@
 package app.jobr;
 
+import app.jobr.library.TestLib;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -17,5 +18,16 @@ public class TaschenrechnerTest
 		testTr.setOperation("+");
 		testTr.doCalculation();
 		assertEquals(34.25673, testTr.getResult().doubleValue());
+	}
+
+	@Test
+	public void libAdditionTest()
+	{
+		TestLib tl = new TestLib();
+		tl.waehle_aus(new Taschenrechner());
+		tl.gibEin("zahl1", "29.3");
+		tl.gibEin("zahl2", "12.44");
+		tl.gibEin("operation", "+");
+		tl.pruefeWert("result", "41.74");
 	}
 }
