@@ -1,11 +1,9 @@
 package app.jobr;
 
 import app.jobr.library.TestLib;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.math.BigDecimal;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TaschenrechnerTest
 {
@@ -17,7 +15,7 @@ public class TaschenrechnerTest
 		testTr.setZahl2(new BigDecimal(24));
 		testTr.setOperation("+");
 		testTr.doCalculation();
-		assertEquals(34.25673, testTr.getResult().doubleValue());
+		assert (34.25673 == testTr.getResult().doubleValue());
 	}
 
 	@Test

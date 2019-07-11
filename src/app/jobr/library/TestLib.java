@@ -1,7 +1,6 @@
 package app.jobr.library;
 
 import app.jobr.Taschenrechner;
-import org.junit.jupiter.api.Assertions;
 
 import java.math.BigDecimal;
 
@@ -47,7 +46,7 @@ public class TestLib
 				if (locator.equals("result"))
 				{
 					((Taschenrechner) target).doCalculation();
-					Assertions.assertEquals(zielWert, ((Taschenrechner) target).getResult().toString());
+					assert (zielWert == ((Taschenrechner) target).getResult().toString());
 				}
 			}
 		}
