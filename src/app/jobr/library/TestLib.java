@@ -8,7 +8,7 @@ public class TestLib
 {
 	Object target;
 
-	public void waehle_aus(Object target)
+	public void starteAnwendung(Object target)
 	{
 		this.target = target;
 	}
@@ -28,10 +28,24 @@ public class TestLib
 					case "zahl2":
 						((Taschenrechner) target).setZahl2(new BigDecimal(setzWert));
 						break;
+				}
+			}
+		}
+	}
 
+	public void waehleAus(String locator, String setzWert)
+	{
+		if (target != null)
+		{
+			if (target instanceof Taschenrechner)
+			{
+				switch (locator)
+				{
 					case "operation":
 						((Taschenrechner) target).setOperation(setzWert);
 						break;
+
+					// Switch-case für spätere Werte
 				}
 			}
 		}
@@ -46,7 +60,7 @@ public class TestLib
 				if (locator.equals("result"))
 				{
 					((Taschenrechner) target).doCalculation();
-					assert (zielWert == ((Taschenrechner) target).getResult().toString());
+					assert (zielWert.equals(((Taschenrechner) target).getResult().toString()));
 				}
 			}
 		}
