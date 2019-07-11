@@ -15,36 +15,6 @@ public class Taschenrechner
 	private BigDecimal result;
 	private String operation;
 
-    public static void main(String[] args)
-    {
-	    if (args.length > 3)
-        {
-            System.out.println("Too many arguments given!");
-        }
-	    else if (args.length < 3)
-        {
-            System.out.println("Too few arguments given!");
-        }
-	    else
-        {
-        	Taschenrechner tr = new Taschenrechner();
-
-            try
-            {
-                tr.setZahl1(new BigDecimal(args[0]));
-                tr.setZahl2(new BigDecimal(args[2]));
-				tr.setOperation(args[1]);
-				tr.doCalculation();
-
-                System.out.println(tr.zahl1 + " " + tr.operation + " " + tr.zahl2 + " = " + tr.getResult());
-            }
-            catch (NumberFormatException e)
-            {
-                System.out.println("At least one argument is not a number.");
-            }
-        }
-    }
-
 	public void setZahl1(BigDecimal x)
 	{
 		zahl1 = x;
