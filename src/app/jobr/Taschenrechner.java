@@ -37,31 +37,30 @@ public class Taschenrechner
 
 	public void doCalculation()
 	{
-		switch (operation)
+		if (zahl1 != null && zahl2 != null)
 		{
-			case "+":
-				result = zahl1.add(zahl2);
-				break;
+			switch (operation)
+			{
+				case "+":
+					result = zahl1.add(zahl2);
+					break;
 
-			case "-":
-				result = zahl1.subtract(zahl2);
-				break;
+				case "-":
+					result = zahl1.subtract(zahl2);
+					break;
 
-			case "*":
-				result = zahl1.multiply(zahl2);
-				break;
+				case "*":
+					result = zahl1.multiply(zahl2);
+					break;
 
-			case "/":
-				result = zahl1.divide(zahl2);
-				break;
+				case "/":
+					result = zahl1.divide(zahl2);
+					break;
 
-			case "%":
-				result = zahl1.remainder(zahl2);
-				break;
-
-			default:
-				//System.out.println("Operation not supported.");
-				//System.exit(0);
+				case "%":
+					result = zahl1.remainder(zahl2);
+					break;
+			}
 		}
 	}
 }
