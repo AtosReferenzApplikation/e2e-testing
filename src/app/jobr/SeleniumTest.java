@@ -1,5 +1,6 @@
 package app.jobr;
 
+import app.jobr.library.TestLib;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -62,5 +63,17 @@ public class SeleniumTest
 
 		Thread.sleep(3000);
 		driver.quit();
+	}
+
+	@Test
+	public void libSeleniumTest()
+	{
+		TestLib tl = new TestLib();
+		tl.starteAnwendung("Web-Taschenrechner");
+		tl.gibEin("zahl1", "12");
+		tl.gibEin("zahl2", "8");
+		tl.waehleAus("operation", "+");
+		tl.waehleAus("berechnen");
+		tl.pruefeWert("ergebnis", "20");
 	}
 }
