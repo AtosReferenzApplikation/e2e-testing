@@ -22,7 +22,7 @@ public class TaschenrechnerTest
 	public void libAdditionTest()
 	{
 		TestLib tl = new TestLib();
-		tl.starteAnwendung(new Taschenrechner());
+		tl.starteAnwendung("Taschenrechner");
 		tl.gibEin("zahl1", "29.3");
 		tl.gibEin("zahl2", "12.44");
 		tl.waehleAus("operation", "+");

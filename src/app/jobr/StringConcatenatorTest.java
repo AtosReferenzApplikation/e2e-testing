@@ -9,7 +9,7 @@ public class StringConcatenatorTest
 	public void textAppendingTest()
 	{
 		TestLib tl = new TestLib();
-		tl.starteAnwendung(new StringConcatenator());
+		tl.starteAnwendung("StringConcatenator");
 		tl.gibEin("input", "hallo!");
 		tl.waehleAus("hinzufuegen");
 		tl.gibEin("input", "test?");
