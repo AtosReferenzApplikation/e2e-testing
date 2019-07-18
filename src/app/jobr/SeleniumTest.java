@@ -14,7 +14,7 @@ public class SeleniumTest
 	public void seleniumTest() throws InterruptedException
 	{
 		// Local path for testing, if not specified, PATH variable will be checked instead
-		System.setProperty("webdriver.chrome.driver", "C:/Users/a705633/Desktop/TestingDemoApp/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "chromedriver.exe"); // Same location as jar file
 		WebDriver driver = new ChromeDriver();
 		driver.get("http://juliemr.github.io/protractor-demo/");
 
