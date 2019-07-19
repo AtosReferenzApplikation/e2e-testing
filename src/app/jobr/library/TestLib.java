@@ -21,6 +21,10 @@ public class TestLib
 				target = new StringConcatenatorType();
 				break;
 
+			case "Web-Taschenrechner":
+				target = new WebTaschenrechnerType();
+				break;
+
 			default:
 				throw new AssertionError(PROGRAM_NOT_FOUND_MESSAGE);
 		}
